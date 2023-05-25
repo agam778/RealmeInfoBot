@@ -1,0 +1,10 @@
+{
+  "name": "realmebot",
+  "version": "1.0.0",
+  "description": "A Telegram bot for getting codename of realms devices, and vice versa",
+  "main": "bot.js",
+  "repository": "https://github.com/agam778/realmebot",
+  "author": "Agampreet Singh <68941022+agam778@users.noreply.github.com>",
+  "license": "GPL-3.0",
+  "packageManager": "yarn@3.5.1"
+}
