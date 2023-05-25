@@ -1,14 +1,22 @@
 {
-  "name": "realmebot",
+  "name": "realmeinfobot",
   "version": "1.0.0",
-  "description": "A Telegram bot for getting codename of realms devices, and vice versa",
+  "description": "A Telegram bot for getting codename of realme devices, and vice versa",
   "main": "bot.js",
-  "repository": "https://github.com/agam778/realmebot",
+  "repository": "https://github.com/agam778/realmeinfobot",
   "author": "Agampreet Singh <68941022+agam778@users.noreply.github.com>",
   "license": "GPL-3.0",
   "scripts": {
     "start": "node bot.js",
     "debug": "nodemon bot.js"
   },
-  "packageManager": "yarn@3.5.1"
+  "packageManager": "yarn@3.5.1",
+  "dependencies": {
+    "@roziscoding/grammy-autoquote": "^1.1.2",
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "fs": "^0.0.1-security",
+    "grammy": "^1.16.1",
+    "gsmarena-api": "^2.0.4"
+  }
 }

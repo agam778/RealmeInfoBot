@@ -1,2 +1,2 @@
-# realmebot
-A Telegram bot for getting codename of realms devices, and vice versa
+# RealmeInfoBot
+A Telegram bot for getting codename of realme devices, and vice versa
