@@ -14,15 +14,12 @@ module.exports = {
       return
     }
 
-    const url = `https://realmebotapi-1-e2272932.deta.app/${devicename.replace(
-      ' ',
-      '%20'
-    )}`
+    const encodedDeviceName = encodeURIComponent(devicename)
+    const url = `https://realmebotapi-1-e2272932.deta.app/${encodedDeviceName}`
 
     try {
       const response = await axios.get(url)
       const data = response.data
-      const result = []
 
       if (data[0].codename === devicename) {
         ctx.reply(
@@ -34,23 +31,26 @@ module.exports = {
         return
       }
 
-      for (const device of data) {
-        const { series, model, codename } = device
-        result.push(`<b>${model}:</b> <code>${codename}</code>`)
-      }
+      const result = data
+        .map(
+          (device) => `<b>${device.model}:</b> <code>${device.codename}</code>`
+        )
+        .join('\n')
 
       ctx.reply(
-        `The codename for <code>${devicename}</code> is:\n\n${result.join(
-          '\n'
-        )}`,
+        `The codename for <code>${devicename}</code> is:\n\n${result}`,
         {
           parse_mode: 'HTML',
         }
       )
     } catch (error) {
-      ctx.reply(`The device <code>${devicename}</code> does not exist!`, {
-        parse_mode: 'HTML',
-      })
+      if (error.response && error.response.status === 404) {
+        ctx.reply(`The device <code>${devicename}</code> does not exist!`, {
+          parse_mode: 'HTML',
+        })
+      } else {
+        ctx.reply('Oops, an error occurred while processing your request!')
+      }
     }
   },
 }
