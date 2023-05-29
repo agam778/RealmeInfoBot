@@ -1,4 +1,5 @@
 const axios = require('axios')
+const { InlineKeyboard } = require('grammy')
 
 module.exports = {
   name: 'whatis',
@@ -15,6 +16,11 @@ module.exports = {
     }
 
     const url = `https://realmebotapi-1-e2272932.deta.app/${codename}`
+
+    const keyboard = new InlineKeyboard().url(
+      'Device/Codename is missing?',
+      'https://github.com/agam778/realmebot-api#contributing'
+    )
 
     try {
       const response = await axios.get(url)
@@ -44,6 +50,7 @@ module.exports = {
         )}`,
         {
           parse_mode: 'HTML',
+          reply_markup: keyboard,
         }
       )
     } catch (error) {
@@ -51,6 +58,7 @@ module.exports = {
         `The device with codename <code>${codename}</code> is not found!`,
         {
           parse_mode: 'HTML',
+          reply_markup: keyboard,
         }
       )
     }
