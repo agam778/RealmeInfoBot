@@ -19,14 +19,28 @@ module.exports = {
     const device = await gsmarena.search.search(name)
 
     if (device.length === 0) {
-      ctx.reply(`The device <code>${name}</code> does not exist!\nNote: If you are searching with codename, enter the device name instead.`, {
-        parse_mode: 'HTML',
-      })
+      ctx.reply(
+        `The device <code>${name}</code> does not exist!\nNote: If you are searching with codename, enter the device name instead.`,
+        {
+          parse_mode: 'HTML',
+        }
+      )
       return
     }
 
     const details = await gsmarena.catalog.getDevice(device[0].id)
     const { name: deviceName, detailSpec } = details
+
+    const url = await axios
+      .get(
+        'https://realmebotapi-1-e2272932.deta.app/' +
+          encodeURIComponent(deviceName)
+      )
+      .catch((err) => {})
+
+    if (url) {
+      var codename = url.data[0].codename
+    }
 
     const result = []
 
@@ -100,9 +114,14 @@ module.exports = {
     const keyboard = new InlineKeyboard()
     keyboard.url('View on GSMArena', `https://gsmarena.com/${device[0].id}.php`)
 
-    ctx.reply(`<b>${deviceName}</b>\n\n${result.join('\n')}` || 'Unknown', {
-      parse_mode: 'HTML',
-      reply_markup: keyboard,
-    })
+    ctx.reply(
+      `<b>${deviceName}</b> - <code>${
+        codename || 'unknown'
+      }</code>\n\n${result.join('\n')}` || 'Unknown',
+      {
+        parse_mode: 'HTML',
+        reply_markup: keyboard,
+      }
+    )
   },
 }
