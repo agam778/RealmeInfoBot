@@ -22,9 +22,22 @@ module.exports = {
       'https://github.com/agam778/realmebot-api#contributing'
     )
 
-    try {
-      const response = await axios.get(url)
+    const response = await axios.get(url).catch((err) => {
+      if (err.response.status === 404) {
+        ctx.reply(
+          `The device with codename <code>${codename}</code> is not found!`,
+          {
+            parse_mode: 'HTML',
+            reply_markup: keyboard,
+          }
+        )
+      }
+      return
+    })
+
+    if (response) {
       const data = response.data
+
       const result = []
 
       if (data[0].model.toLowerCase().includes(codename.toLowerCase())) {
@@ -48,14 +61,6 @@ module.exports = {
         `The device(s) with codename <code>${codename}</code> is:\n\n${result.join(
           '\n'
         )}`,
-        {
-          parse_mode: 'HTML',
-          reply_markup: keyboard,
-        }
-      )
-    } catch (error) {
-      ctx.reply(
-        `The device with codename <code>${codename}</code> is not found!`,
         {
           parse_mode: 'HTML',
           reply_markup: keyboard,

@@ -23,8 +23,17 @@ module.exports = {
       'https://github.com/agam778/realmebot-api#contributing'
     )
 
-    try {
-      const response = await axios.get(url)
+    const response = await axios.get(url).catch((err) => {
+      if (err.response.status === 404) {
+        ctx.reply(`The device <code>${devicename}</code> does not exist!`, {
+          parse_mode: 'HTML',
+          reply_markup: keyboard,
+        })
+      }
+      return
+    })
+
+    if (response) {
       const data = response.data
 
       if (data[0].codename === devicename) {
@@ -50,15 +59,6 @@ module.exports = {
           reply_markup: keyboard,
         }
       )
-    } catch (error) {
-      if (error.response && error.response.status === 404) {
-        ctx.reply(`The device <code>${devicename}</code> does not exist!`, {
-          parse_mode: 'HTML',
-          reply_markup: keyboard,
-        })
-      } else {
-        ctx.reply('Oops, an error occurred while processing your request!')
-      }
     }
   },
 }
