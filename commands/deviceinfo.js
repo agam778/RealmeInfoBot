@@ -19,7 +19,7 @@ module.exports = {
     const device = await gsmarena.search.search(name)
 
     if (device.length === 0) {
-      ctx.reply(`The device <code>${name}</code> does not exist!`, {
+      ctx.reply(`The device <code>${name}</code> does not exist!\nNote: If you are searching with codename, enter the device name instead.`, {
         parse_mode: 'HTML',
       })
       return
