@@ -36,6 +36,7 @@ The environment variables are present in `sample.env`, rename it to `.env` and f
 
 - BOT_TOKEN: The token of your bot, get it from @BotFather
 - LOG_CHANNEL: The ID of the channel/group where the logs will be sent if an error occurs when a command is executed
+- LOG_COMMANDS: Set it to `true` if you want to log the commands executed by the users [OPTIONAL]
 
 ## Self host:
 
