@@ -51,10 +51,8 @@ module.exports = {
       }
 
       for (const device of data) {
-        const { series, model, codename } = device
-        result.push(
-          `<b>${series} Series:</b> ${model}: <code>${codename}</code>`
-        )
+        const { model, codename } = device
+        result.push(`<b>${model}:</b> <code>${codename}</code>`)
       }
 
       ctx.reply(
