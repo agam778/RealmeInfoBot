@@ -109,6 +109,8 @@ async function start() {
     process.exit(0)
   })
 
+  require('./webserver.js')
+
   console.log('Starting @RealmeInfoBot...')
   await bot.start()
 }
