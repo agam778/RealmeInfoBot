@@ -11,7 +11,7 @@ module.exports = {
 
     const name = text.substring(text.indexOf(' ') + 1)
 
-    if (!name) {
+    if (name == '/deviceinfo' || name == `/deviceinfo@${ctx.me.username}`) {
       ctx.reply('Please provide the name of the device!')
       return
     }
