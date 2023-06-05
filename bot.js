@@ -60,7 +60,7 @@ async function start() {
 
   bot.command('start', (ctx) =>
     ctx.reply(
-      'Hello! I am RealmeInfoBot, and I can tell you the name of the model if you prove me the codename, vice versa.\n\n' +
+      'Hello! I am RealmeInfoBot, and I can tell you the name of the model if you provide me the codename, vice versa.\n\n' +
         'Run the /help command to see the list of commands!'
     )
   )
