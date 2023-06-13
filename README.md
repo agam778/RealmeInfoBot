@@ -43,6 +43,9 @@ The environment variables are present in `sample.env`, rename it to `.env` and f
 Install Dependencies: Run `yarn; yarn install`<br>
 Run the Bot: Run `yarn start`
 
+# Credits:
+- [R0rt1z2](https://github.com/R0rt1z2) for ota command
+
 # License
 
 RealmeInfoBot is licensed under the GPL 3.0 license. See the [`LICENSE`](./LICENSE) file for more information.
