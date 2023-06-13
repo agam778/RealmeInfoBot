@@ -41,16 +41,19 @@ module.exports = {
       )
 
       if (commandDetail) {
-        let output = `<b>Command: </b>/${commandDetail.name}\n`
-        output += `<b>Description:</b> ${commandDetail.description}\n`
-        output += `<b>Usage:</b> <code>${commandDetail.usage}</code>\n`
-        output += `<b>Example:</b> <code>${commandDetail.example}</code>\n`
+        let output = `*Command:* /${commandDetail.name}\n`
+        output += `*Description:* ${commandDetail.description}\n`
+        output += `*Usage:* \`${commandDetail.usage}\`\n`
+        output += `*Example:* \`${commandDetail.example}\`\n`
 
-        await ctx.reply(output, { parse_mode: 'HTML' })
+        await ctx.reply(output, { parse_mode: 'MarkdownV2' })
       } else {
-        await ctx.reply(`Command <code>${command}</code> not found!\nRun /help to see all the commands.`, {
-          parse_mode: 'HTML',
-        })
+        await ctx.reply(
+          `Command <code>${command}</code> not found!\nRun /help to see all the commands.`,
+          {
+            parse_mode: 'HTML',
+          }
+        )
       }
     }
   },
