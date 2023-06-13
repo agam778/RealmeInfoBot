@@ -5,6 +5,8 @@ const gsmarena = require('gsmarena-api')
 module.exports = {
   name: 'deviceinfo',
   description: 'Get the details of the mentioned device',
+  usage: '/deviceinfo <device-name>',
+  example: `/deviceinfo Realme X2 Pro`,
   handler: async (ctx) => {
     const { message } = ctx
     const { text } = message

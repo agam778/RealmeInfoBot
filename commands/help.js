@@ -3,6 +3,8 @@ const fs = require('fs')
 module.exports = {
   name: 'help',
   description: 'Show a list of commands',
+  usage: '/help OR /help <command>',
+  example: `/help OR /help deviceinfo`,
   handler: async (ctx) => {
     const { message } = ctx
     const { text } = message

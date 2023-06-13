@@ -7,6 +7,8 @@ const fs = require('fs').promises
 module.exports = {
   name: 'ota',
   description: 'Request and send OTA packages from BBK server(s)',
+  usage: '/ota <region_code> | <codename> | <ota_version> | <realmeui_version>',
+  example: `/ota 2 | RMX2020 | RMX2020_11.C.12 | 2`,
   handler: async (ctx) => {
     const { message } = ctx
     const { text } = message

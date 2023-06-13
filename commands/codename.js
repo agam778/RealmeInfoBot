@@ -4,6 +4,8 @@ const { InlineKeyboard } = require('grammy')
 module.exports = {
   name: 'codename',
   description: "Get device's codename from the name",
+  usage: '/codename <device-name>',
+  example: `/codename Realme 5 Pro`,
   handler: async (ctx) => {
     const { message } = ctx
     const { text } = message
