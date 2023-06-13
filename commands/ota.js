@@ -32,25 +32,39 @@ module.exports = {
     try {
       await executeRealmeOtaCommand(details, otaJsonPath)
       const ota = require(otaJsonPath)
-      const { androidVersion, versionName } = ota
 
-      let messageText = `<b>Android Version:</b> <code>${androidVersion}</code>\n<b>Version Name:</b> <code>${versionName}</code>\n\n`
+      let messageText = `<b>Android Version:</b> <code>${
+        ota.androidVersion || ota.newAndroidVersion || 'N/A'
+      }</code>\n<b>Version Name:</b> <code>${
+        ota.versionName || ota.aid
+      }</code>\n\n`
 
-      for (const component of ota.components) {
-        const componentName = component.componentName
-        const downloadUrl = component.componentPackets
-          ? component.componentPackets.url
-          : ''
+      if (ota.components) {
+        for (const component of ota.components) {
+          const componentName = component.componentName
+          const downloadUrl = component.componentPackets
+            ? component.componentPackets.url
+            : ''
 
-        messageText += `<b>Component Name:</b> <code>${componentName}</code>\n`
+          messageText += `<b>Component Name:</b> <code>${componentName}</code>\n`
+          messageText += `<b>Download:</b> ${
+            downloadUrl
+              ? `<a href="${downloadUrl}">${componentName}</a>`
+              : 'N/A'
+          }\n\n`
+        }
+      } else {
+        const downloadUrl = ota.down_url
+
         messageText += `<b>Download:</b> ${
-          downloadUrl ? `<a href="${downloadUrl}">${componentName}</a>` : 'N/A'
-        }\n\n`
+          downloadUrl ? `<a href="${downloadUrl}">Download</a>` : 'N/A'
+        }\n`
       }
 
       const keyboard = new InlineKeyboard().url(
         'Description',
         ota.description.url ||
+          ota.description ||
           'https://www.realme.com/in/support/software-update'
       )
       const messageOptions = {
