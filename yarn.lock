@@ -442,14 +442,14 @@ __metadata:
   linkType: hard
 
 "grammy@npm:^1.16.1":
-  version: 1.16.1
-  resolution: "grammy@npm:1.16.1"
+  version: 1.16.2
+  resolution: "grammy@npm:1.16.2"
   dependencies:
     "@grammyjs/types": 3.1.1
     abort-controller: ^3.0.0
     debug: ^4.3.4
     node-fetch: ^2.6.9
-  checksum: d0776ca345c19a689b5dda603c56dd4c24ed0d5281dc4c497d64cb8b8c9611b61ab918b9091b993f14d86d30caff8749f9d46e294e2d70241b75a01a3c09295a
+  checksum: 7d34962ae0a91eeb092dddaeb1ccc01ec5952870b77bc77313b8cc32fad67a176398aae1d859ce50dc32dc09b7c1331c12f0db53e853996ec47748fd0c44506d
   languageName: node
   linkType: hard
 
