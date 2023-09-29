@@ -18,9 +18,9 @@ module.exports = {
       return
     }
 
-    const device = await gsmarena.search.search(name)
+    const searchresult = await gsmarena.search.search(name)
 
-    if (device.length === 0) {
+    if (searchresult.length === 0) {
       ctx.reply(
         `The device <code>${name}</code> does not exist!\nNote: If you are searching with codename, enter the device name instead.`,
         {
@@ -30,7 +30,12 @@ module.exports = {
       return
     }
 
-    const details = await gsmarena.catalog.getDevice(device[0].id)
+    const device =
+      searchresult.find(
+        (device) => device.name.toLowerCase() === name.toLowerCase()
+      ) || searchresult[0]
+
+    const details = await gsmarena.catalog.getDevice(device.id)
     const { name: deviceName, detailSpec } = details
 
     const url = await axios
@@ -114,7 +119,7 @@ module.exports = {
     result.push(`<b>Battery:</b> ${batteryValue || 'Unknown'}`)
 
     const keyboard = new InlineKeyboard()
-    keyboard.url('View on GSMArena', `https://gsmarena.com/${device[0].id}.php`)
+    keyboard.url('View on GSMArena', `https://gsmarena.com/${device.id}.php`)
 
     ctx.reply(
       `<b>${deviceName}</b> - <code>${
