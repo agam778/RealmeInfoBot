@@ -5,10 +5,10 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@grammyjs/types@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@grammyjs/types@npm:3.1.1"
-  checksum: d699c8a3bf71522f0e369cc47e885fdbd5586d93e6ca402bdc76e919b15e8eb95199b1c0ffb0920759b341bb8f2c72c477d084690b4478d1152ea589299acc8a
+"@grammyjs/types@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@grammyjs/types@npm:3.3.0"
+  checksum: f8bdf49dc366497dc1fc4744a5784a575e7a24d4d8c654bd0952e7adce60d3aa16c94336fda6ec48e1c8ca5a195608e44d82a41d7eb752bdfbb170ced5653771
   languageName: node
   linkType: hard
 
@@ -442,14 +442,14 @@ __metadata:
   linkType: hard
 
 "grammy@npm:^1.16.1":
-  version: 1.16.2
-  resolution: "grammy@npm:1.16.2"
+  version: 1.19.2
+  resolution: "grammy@npm:1.19.2"
   dependencies:
-    "@grammyjs/types": 3.1.1
+    "@grammyjs/types": 3.3.0
     abort-controller: ^3.0.0
     debug: ^4.3.4
-    node-fetch: ^2.6.9
-  checksum: 7d34962ae0a91eeb092dddaeb1ccc01ec5952870b77bc77313b8cc32fad67a176398aae1d859ce50dc32dc09b7c1331c12f0db53e853996ec47748fd0c44506d
+    node-fetch: ^2.7.0
+  checksum: 7254b064d85a0e844f49f9196aea32412dc88c89e616cb338e67807265584f490695ed229cb91c284da733702a88812b936170c65fcad1b7a7d99f6db338a89c
   languageName: node
   linkType: hard
 
@@ -617,9 +617,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2.6.9":
-  version: 2.6.11
-  resolution: "node-fetch@npm:2.6.11"
+"node-fetch@npm:^2.7.0":
+  version: 2.7.0
+  resolution: "node-fetch@npm:2.7.0"
   dependencies:
     whatwg-url: ^5.0.0
   peerDependencies:
@@ -627,7 +627,7 @@ __metadata:
   peerDependenciesMeta:
     encoding:
       optional: true
-  checksum: 249d0666a9497553384d46b5ab296ba223521ac88fed4d8a17d6ee6c2efb0fc890f3e8091cafe7f9fba8151a5b8d925db2671543b3409a56c3cd522b468b47b3
+  checksum: d76d2f5edb451a3f05b15115ec89fc6be39de37c6089f1b6368df03b91e1633fd379a7e01b7ab05089a25034b2023d959b47e59759cb38d88341b2459e89d6e5
   languageName: node
   linkType: hard
 
