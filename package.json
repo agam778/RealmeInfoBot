@@ -10,7 +10,7 @@
     "start": "node bot.js",
     "debug": "nodemon bot.js"
   },
-  "packageManager": "yarn@4.0.1",
+  "packageManager": "yarn@4.0.2",
   "dependencies": {
     "@roziscoding/grammy-autoquote": "^1.1.2",
     "axios": "^1.4.0",
