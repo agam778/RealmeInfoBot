@@ -535,11 +535,11 @@ __metadata:
   linkType: hard
 
 "marked@npm:^11.0.0":
-  version: 11.0.0
-  resolution: "marked@npm:11.0.0"
+  version: 11.1.0
+  resolution: "marked@npm:11.1.0"
   bin:
     marked: bin/marked.js
-  checksum: 45a8d7b168f965229e9d64607cda8a05ed7776ee137f4acfae16555114513a7f1c73bc977ea865ad380402fac3b17c072516e0e5a6171db05151c7d69aee5485
+  checksum: 6a1cecaa849e47b11a060c068ca4d48f8aa9e203cd39d59b3f55dc43c5ea860af3ee341eeb02d985ecbee8d835a1377a170ca416716608e1a14b8b0b3599fa0f
   languageName: node
   linkType: hard
 
