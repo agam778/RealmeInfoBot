@@ -12,12 +12,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roziscoding/grammy-autoquote@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "@roziscoding/grammy-autoquote@npm:1.1.2"
+"@roziscoding/grammy-autoquote@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@roziscoding/grammy-autoquote@npm:2.0.0"
   peerDependencies:
     grammy: ^1.5.1
-  checksum: b64293c82407552d70001952fd62b261d5caac50a40e71f36242eafd708b83aed3cb7e416cf283b3d42fb0807eb8dba05be74ad96c7d53da5da6c0b10b8925e3
+  checksum: ddc038402a86ebf4ae9fd5299ca92ee3ceffe61bc13772709ea642ccad6e6fd4f3186157d984e48c99c8eea75f66ef912d61841fabf2110e41e754a4fa784bf9
   languageName: node
   linkType: hard
 
@@ -756,7 +756,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "realmeinfobot@workspace:."
   dependencies:
-    "@roziscoding/grammy-autoquote": "npm:^1.1.2"
+    "@roziscoding/grammy-autoquote": "npm:^2.0.0"
     axios: "npm:^1.4.0"
     dotenv: "npm:^16.0.3"
     express: "npm:^4.18.2"
