@@ -12,12 +12,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@grammyjs/types@npm:3.5.2":
+  version: 3.5.2
+  resolution: "@grammyjs/types@npm:3.5.2"
+  checksum: 55e02fbb5863cc48dc63384297d91abd0dddb21bda5a7ff9c3b8e54664cb0bdf14f222d26f575134a075417ed18b5090cfa2c075e7796fe23ecc084ad65342a4
+  languageName: node
+  linkType: hard
+
 "@roziscoding/grammy-autoquote@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@roziscoding/grammy-autoquote@npm:2.0.0"
-  peerDependencies:
-    grammy: ^1.5.1
-  checksum: ddc038402a86ebf4ae9fd5299ca92ee3ceffe61bc13772709ea642ccad6e6fd4f3186157d984e48c99c8eea75f66ef912d61841fabf2110e41e754a4fa784bf9
+  version: 2.0.4
+  resolution: "@roziscoding/grammy-autoquote@npm:2.0.4"
+  dependencies:
+    grammy: "npm:1"
+  checksum: 56ff9cf4697098e8b03c5764ac97581da1c9096d1453719565f23b7d63492afe9686a92c51bb8e4a916a667e717c2dc776d36e3a4038936ccf3b0ce5ca9da412
   languageName: node
   linkType: hard
 
@@ -438,6 +445,18 @@ __metadata:
     has-proto: "npm:^1.0.1"
     has-symbols: "npm:^1.0.3"
   checksum: 49eab47f9de8f1a4f9b458b8b74ee5199fb2614414a91973eb175e07db56b52b6df49b255cc7ff704cb0786490fb93bfe8f2ad138b590a8de09b47116a366bc9
+  languageName: node
+  linkType: hard
+
+"grammy@npm:1":
+  version: 1.21.1
+  resolution: "grammy@npm:1.21.1"
+  dependencies:
+    "@grammyjs/types": "npm:3.5.2"
+    abort-controller: "npm:^3.0.0"
+    debug: "npm:^4.3.4"
+    node-fetch: "npm:^2.7.0"
+  checksum: 0460211ff2ac6b1bf5c7d90af830bcd0862830fecb9d9f95f667cfcf4dfe3bb5bb952b1e0fb211a73cc0671efe76b4070732174d64cda993a43bfbe77399244b
   languageName: node
   linkType: hard
 
