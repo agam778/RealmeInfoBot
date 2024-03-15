@@ -55,14 +55,6 @@ module.exports = {
       .find((category) => category.category === 'Launch')
       ?.specifications.find((spec) => spec.name === 'Status')?.value
 
-    const networkValue = detailSpec
-      .find((category) => category.category === 'Network')
-      ?.specifications.find((spec) => spec.name === 'Technology')?.value
-
-    const weightValue = detailSpec
-      .find((category) => category.category === 'Body')
-      ?.specifications.find((spec) => spec.name === 'Weight')?.value
-
     const displayCategory = detailSpec.find(
       (category) => category.category === 'Display'
     )
@@ -82,28 +74,39 @@ module.exports = {
     const chipsetValue = platformCategory?.specifications.find(
       (spec) => spec.name === 'Chipset'
     ).value
-    const cpuValue = platformCategory?.specifications.find(
-      (spec) => spec.name === 'CPU'
-    ).value
     const gpuValue = platformCategory?.specifications.find(
       (spec) => spec.name === 'GPU'
     ).value
 
-    const memoryValue = detailSpec
-      .find((category) => category.category === 'Memory')
-      ?.specifications.find((spec) => spec.name === 'Internal')?.value
+    const mainCameraName = detailSpec.find(
+      (category) => category.category === 'Main Camera'
+    )?.specifications[0].name
 
-    const sensorsValue = detailSpec
-      .find((category) => category.category === 'Features')
-      ?.specifications.find((spec) => spec.name === 'Sensors')?.value
+    const mainCameraValue = detailSpec.find(
+      (category) => category.category === 'Main Camera'
+    )?.specifications[0].value
 
-    const batteryValue = detailSpec
+    const mainCameraFeatures = detailSpec.find(
+      (category) => category.category === 'Main Camera'
+    )?.specifications[1].value
+
+    const selfieCameraName = detailSpec.find(
+      (category) => category.category === 'Selfie camera'
+    )?.specifications[0].name
+
+    const selfieCameraValue = detailSpec.find(
+      (category) => category.category === 'Selfie camera'
+    )?.specifications[0].value
+
+    const batterySpecs = detailSpec
       .find((category) => category.category === 'Battery')
       ?.specifications.find((spec) => spec.name === 'Type')?.value
 
+    const batteryValue = detailSpec
+      .find((category) => category.category === 'Battery')
+      ?.specifications.find((spec) => spec.name === 'Charging')?.value
+
     result.push(`<b>Status:</b> ${statusValue || 'Unknown'}`)
-    result.push(`<b>Network:</b> ${networkValue || 'Unknown'}`)
-    result.push(`<b>Weight:</b> ${weightValue || 'Unknown'}`)
     result.push(
       `<b>Display:</b>\n- ${typeValue || 'Unknown'}\n- ${
         sizeValue || 'Unknown'
@@ -111,12 +114,24 @@ module.exports = {
     )
     result.push(
       `<b>Platform:</b>\n- ${chipsetValue || 'Unknown'}\n- ${
-        cpuValue || 'Unknown'
-      }\n- ${gpuValue || 'Unknown'}`
+        gpuValue || 'Unknown'
+      }`
     )
-    result.push(`<b>Memory:</b> ${memoryValue || 'Unknown'}`)
-    result.push(`<b>Sensors:</b> ${sensorsValue || 'Unknown'}`)
-    result.push(`<b>Battery:</b> ${batteryValue || 'Unknown'}`)
+    result.push(
+      `<b>Main Camera (${mainCameraName || 'Unknown'}):</b>\n- ${
+        mainCameraValue || 'Unknown'
+      }\n- ${mainCameraFeatures || 'Unknown'}`
+    )
+    result.push(
+      `<b>Selfie Camera (${selfieCameraName || 'Unknown'}):</b>\n- ${
+        selfieCameraValue || 'Unknown'
+      }`
+    )
+    result.push(
+      `<b>Battery:</b>\n- ${batterySpecs || 'Unknown'}\n- ${
+        batteryValue || 'Unknown'
+      }`
+    )
 
     const keyboard = new InlineKeyboard()
     keyboard.url('View on GSMArena', `https://gsmarena.com/${device.id}.php`)
