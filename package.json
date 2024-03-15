@@ -12,7 +12,7 @@
   },
   "packageManager": "yarn@4.0.2",
   "dependencies": {
-    "@roziscoding/grammy-autoquote": "^1.1.2",
+    "@roziscoding/grammy-autoquote": "^2.0.0",
     "axios": "^1.4.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
