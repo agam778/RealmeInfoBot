@@ -473,12 +473,12 @@ __metadata:
   linkType: hard
 
 "gsmarena-api@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "gsmarena-api@npm:2.0.4"
+  version: 2.0.5
+  resolution: "gsmarena-api@npm:2.0.5"
   dependencies:
     axios: "npm:^1.2.5"
     cheerio: "npm:^1.0.0-rc.10"
-  checksum: 566916aaa2a69250439eaa627d1494dfb5b727d0b5b4d73e40c2807e9e93856ddc573e1e5b79fabbf21e905c3935eddbbfaf79a78bc378a6d9712ec40cf93df6
+  checksum: 8b68767fdd8f0af66212d3f85029a6b75ff5b34dc2deb1b5ef0ce1648a42a95114308a633023eb726bf0af4cfd4e5f5c840e11b6b7691f57918fa1cbcff50bd1
   languageName: node
   linkType: hard
 
