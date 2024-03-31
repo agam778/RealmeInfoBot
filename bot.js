@@ -1,10 +1,12 @@
-const { Bot, GrammyError, HttpError } = require('grammy')
-const { autoQuote } = require('@roziscoding/grammy-autoquote')
-const fs = require('fs')
-const path = require('path')
+import { Bot, GrammyError, HttpError } from 'grammy'
+import { autoQuote } from '@roziscoding/grammy-autoquote'
+import { config } from 'dotenv'
+import fs from 'fs'
+import './webserver.js'
+import composer from './modules/mod.js'
 
 if (fs.existsSync('.env')) {
-  require('dotenv').config()
+  config()
 }
 
 const logchannel = process.env.LOG_CHANNEL
@@ -17,53 +19,10 @@ if (!botToken) {
   throw new Error('BOT_TOKEN not set in environment variables! Exiting...')
 }
 
-async function logCommand(ctx) {
-  if (process.env.LOG_COMMANDS === 'true') {
-    const commandText = ctx.message.text
-    const chatTitle = ctx.chat.title
-    const userFirstName = ctx.from.first_name
-    const userLastName = ctx.from.last_name || ''
-    const username = ctx.from.username || ''
-
-    const logMessage = `Command: <code>${commandText}</code>\n\nGroup: <code>${chatTitle}</code>\n\nUser: ${userFirstName} ${userLastName} (@${username})`
-
-    ctx.api.sendMessage(logchannel, logMessage, {
-      parse_mode: 'HTML',
-      chat_id: logchannel,
-    })
-  }
-}
-
 async function start() {
   const bot = new Bot(botToken)
   bot.use(autoQuote())
-
-  const commandFilesDir = path.resolve(__dirname, 'commands')
-  const commandFiles = fs
-    .readdirSync(commandFilesDir)
-    .filter((file) => file.endsWith('.js'))
-  for (const file of commandFiles) {
-    const command = require(path.join(commandFilesDir, file))
-    bot.command(command.name, (ctx) => {
-      logCommand(ctx)
-      command.handler(ctx)
-    })
-    if (command.alias) {
-      for (const alias of command.alias) {
-        bot.command(alias, (ctx) => {
-          logCommand(ctx)
-          command.handler(ctx)
-        })
-      }
-    }
-  }
-
-  bot.command('start', (ctx) =>
-    ctx.reply(
-      'Hello! I am RealmeInfoBot, and I can provide you information about Realme devices.\n\n' +
-        'Run the /help command to see the list of commands!'
-    )
-  )
+  bot.use(composer)
 
   bot.catch((err) => {
     const ctx = err.ctx
@@ -108,8 +67,6 @@ async function start() {
     bot.stop()
     process.exit(0)
   })
-
-  require('./webserver.js')
 
   console.log('Starting @RealmeInfoBot...')
   await bot.start()

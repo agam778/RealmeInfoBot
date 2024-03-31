@@ -1,6 +1,7 @@
 {
   "name": "realmeinfobot",
   "version": "1.0.0",
+  "type": "module",
   "description": "Your go-to Telegram bot for instant device information on Realme smartphones",
   "main": "bot.js",
   "repository": "https://github.com/agam778/realmeinfobot",

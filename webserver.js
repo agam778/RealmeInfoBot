@@ -1,7 +1,8 @@
-const express = require('express')
-const fs = require('fs')
-const path = require('path')
-const marked = require('marked')
+import express from 'express'
+import fs from 'fs'
+import path from 'path'
+import { marked } from 'marked'
+const __dirname = path.dirname(new URL(import.meta.url).pathname)
 
 const app = express()
 const port = process.env.PORT || 8080
@@ -77,4 +78,4 @@ app.listen(port, () => {
   console.log(`The web server is running on port ${port}!`)
 })
 
-module.exports = app
+export default app
