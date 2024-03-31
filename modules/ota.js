@@ -4,6 +4,7 @@ import { Composer, InlineKeyboard } from 'grammy'
 import randomstring from 'randomstring'
 import fs from 'fs'
 import path from 'path'
+import { logCommand } from '../helpers.js'
 const __dirname = path.dirname(new URL(import.meta.url).pathname)
 
 const composer = new Composer()
@@ -11,6 +12,7 @@ const composer = new Composer()
 composer.command('ota', async (ctx) => {
   const { message } = ctx
   const { text } = message
+  logCommand(ctx)
 
   if (text === '/ota' || text === `/ota@${ctx.me.username}`) {
     ctx.reply(

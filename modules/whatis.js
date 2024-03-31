@@ -1,4 +1,5 @@
 import { Composer, InlineKeyboard } from 'grammy'
+import { logCommand } from '../helpers.js'
 import axios from 'axios'
 
 const composer = new Composer()
@@ -6,6 +7,7 @@ const composer = new Composer()
 composer.command('whatis', async (ctx) => {
   const { message } = ctx
   const { text } = message
+  logCommand(ctx)
 
   const codename = text.substring(text.indexOf(' ') + 1)
 

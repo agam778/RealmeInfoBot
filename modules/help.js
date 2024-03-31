@@ -1,4 +1,5 @@
 import { Composer } from 'grammy'
+import { logCommand } from '../helpers.js'
 const composer = new Composer()
 
 const commands = [
@@ -44,6 +45,7 @@ const commands = [
 composer.command('help', async (ctx) => {
   const { message } = ctx
   const { text } = message
+  logCommand(ctx)
 
   if (text === '/help' || text === `/help@${ctx.me.username}`) {
     let output = "Here's the list of commands you can use:\n\n"

@@ -1,12 +1,14 @@
 import { Composer, InlineKeyboard } from 'grammy'
 import axios from 'axios'
 import gsmarena from 'gsmarena-api'
+import { logCommand } from '../helpers.js'
 
 const composer = new Composer()
 
 composer.command('deviceinfo', async (ctx) => {
   const { message } = ctx
   const { text } = message
+  logCommand(ctx)
 
   const name = text.substring(text.indexOf(' ') + 1)
 
