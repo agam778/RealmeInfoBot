@@ -17,7 +17,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
-    "grammy": "1.16.1",
+    "grammy": "1.21.2",
     "gsmarena-api": "^2.0.4",
     "marked": "^12.0.0",
     "randomstring": "^1.3.0"

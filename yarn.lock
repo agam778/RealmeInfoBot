@@ -5,13 +5,6 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@grammyjs/types@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@grammyjs/types@npm:3.1.1"
-  checksum: a7c7e29b949703293d36887494f8539d3465cf992a86fd6474e8168c64591e6709c10043ff42b6fb51a44aa71a61e46a2dc23d5df4d190ef0f46580743e3c4fa
-  languageName: node
-  linkType: hard
-
 "@grammyjs/types@npm:3.5.2":
   version: 3.5.2
   resolution: "@grammyjs/types@npm:3.5.2"
@@ -460,15 +453,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"grammy@npm:1.16.1":
-  version: 1.16.1
-  resolution: "grammy@npm:1.16.1"
+"grammy@npm:1.21.2":
+  version: 1.21.2
+  resolution: "grammy@npm:1.21.2"
   dependencies:
-    "@grammyjs/types": "npm:3.1.1"
+    "@grammyjs/types": "npm:3.5.2"
     abort-controller: "npm:^3.0.0"
     debug: "npm:^4.3.4"
-    node-fetch: "npm:^2.6.9"
-  checksum: 80deaa93950d45529f913b017a87874a5d36cb5ccceb8c6802682e7baa18ab44e1f3c3bea3fa7d6fb113792762137005eb6498963b044dfa4201e833b73f347d
+    node-fetch: "npm:^2.7.0"
+  checksum: e35e09b9864735db9074ef84c1f595d936f9fc5350df3d30d3ef701140ebb4984b639c3cf7cc2e568bccc34b8dcaa10e623d399880d44b6c67595337865a8041
   languageName: node
   linkType: hard
 
@@ -636,7 +629,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2.6.9, node-fetch@npm:^2.7.0":
+"node-fetch@npm:^2.7.0":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
   dependencies:
@@ -780,7 +773,7 @@ __metadata:
     dotenv: "npm:^16.0.3"
     express: "npm:^4.18.2"
     fs: "npm:^0.0.1-security"
-    grammy: "npm:1.16.1"
+    grammy: "npm:1.21.2"
     gsmarena-api: "npm:^2.0.4"
     marked: "npm:^12.0.0"
     randomstring: "npm:^1.3.0"
