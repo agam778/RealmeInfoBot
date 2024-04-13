@@ -43,7 +43,7 @@ To add missing devices/codenames, please visit https://github.com/agam778/realme
 
 ## About the environment variables:
 
-The environment variables are present in `sample.env`, rename it to `.env` and fill in the values if you're self hosting it.
+The environment variables are present in `.env.example`, rename it to `.env` and fill in the values if you're self hosting it.
 
 - BOT_TOKEN: The token of your bot, get it from @BotFather
 - LOG_CHANNEL: The ID of the channel/group where the logs will be sent if an error occurs when a command is executed
@@ -51,8 +51,11 @@ The environment variables are present in `sample.env`, rename it to `.env` and f
 
 ## Self host:
 
-Install Dependencies: Run `yarn; yarn install`<br>
-Run the Bot: Run `yarn start`
+- Clone the repository
+- Update the `.env.example` file as per the guide above.
+- Rename the file by removing the `.example` extension.
+- Install Dependencies: Run `yarn install`
+- Run the Bot: Run `yarn start`
 
 # Credits:
 
