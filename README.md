@@ -7,29 +7,36 @@ RealmeInfoBot is a Telegram bot that provides device information for Realme smar
 The following commands are available:
 
 ### `/deviceinfo <device-name>`
+
 - Description: Get the details of the mentioned device.
 - Example: `/deviceinfo Realme X2 Pro`
 
 ### `/codename <device-name>`
+
 - Description: Get the device's codename from the name.
 - Example: `/codename Realme 5 Pro`
 
 ### `/ota <region_code> | <codename> | <ota_version> | <realmeui_version>`
+
 - Description: Request and send OTA packages from BBK server(s)
 - Example: ` /ota 2 | RMX2020 | RMX2020_11.C.12 | 2`
 
 ### `/whatis <codename>`
+
 - Description: Get the device's name from the codename.
 - Example: `/whatis RMX1971`
 
 ### `/help`
+
 - Description: Get the list of available commands.
 - Example: `/help`
 
 # Add it to your group
+
 To add this bot in your group, invite "[@RealmeInfoBot](https://t.me/RealmeInfoBot)" to your group
 
 # Contributing
+
 To add missing devices/codenames, please visit https://github.com/agam778/realmebot-api#contributing
 
 # Other Information
@@ -48,6 +55,7 @@ Install Dependencies: Run `yarn; yarn install`<br>
 Run the Bot: Run `yarn start`
 
 # Credits:
+
 - [R0rt1z2](https://github.com/R0rt1z2) for ota command
 
 # License
