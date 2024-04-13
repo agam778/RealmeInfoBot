@@ -9,12 +9,12 @@ composer.command('whatis', async (ctx) => {
   const { text } = message
   logCommand(ctx)
 
-  const codename = text.substring(text.indexOf(' ') + 1)
-
-  if (codename == '/whatis' || codename == `/whatis@${ctx.me.username}`) {
+  if (text.split(' ').length < 2) {
     ctx.reply('Please provide the codename of the device!')
     return
   }
+
+  const codename = text.split(' ')[1]
 
   const url = `https://realmebotapi-1-e2272932.deta.app/${codename}`
 

@@ -14,7 +14,7 @@ composer.command('ota', async (ctx) => {
   const { text } = message
   logCommand(ctx)
 
-  if (text === '/ota' || text === `/ota@${ctx.me.username}`) {
+  if (text.split(' ').length < 2) {
     ctx.reply(
       'Please provide me the details!\n\n<b>Usage:</b> <code>/ota region_code | codename | ota_version | realmeui_version</code>\n<b>Example:</b> <code>/ota 2 | RMX2020 | RMX2020_11.C.12 | 2</code>',
       {
@@ -29,7 +29,7 @@ composer.command('ota', async (ctx) => {
     charset: 'alphabetic',
   })
 
-  const details = text.substring(text.indexOf(' ') + 1).split(' | ')
+  const details = text.split(' ')[1].split(' | ')
   const otaJsonPath = join(__dirname, '..', `ota-${randomchar}.json`)
 
   try {

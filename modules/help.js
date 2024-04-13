@@ -47,7 +47,7 @@ composer.command('help', async (ctx) => {
   const { text } = message
   logCommand(ctx)
 
-  if (text === '/help' || text === `/help@${ctx.me.username}`) {
+  if (text.split(' ').length < 2) {
     let output = "Here's the list of commands you can use:\n\n"
 
     commands.forEach((command) => {
@@ -55,8 +55,8 @@ composer.command('help', async (ctx) => {
     })
 
     await ctx.reply(output, { parse_mode: 'HTML' })
-  } else if (text.substring(text.indexOf(' ') + 1)) {
-    const command = text.substring(text.indexOf(' ') + 1)
+  } else {
+    const command = text.split(' ')[1]
 
     if (commands.find((cmd) => cmd.name === command)) {
       const commandDetail = commands.find((cmd) => cmd.name === command)

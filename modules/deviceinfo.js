@@ -10,12 +10,12 @@ composer.command('deviceinfo', async (ctx) => {
   const { text } = message
   logCommand(ctx)
 
-  const name = text.substring(text.indexOf(' ') + 1)
-
-  if (name == '/deviceinfo' || name == `/deviceinfo@${ctx.me.username}`) {
+  if (text.split(' ').length < 2) {
     ctx.reply('Please provide the name of the device!')
     return
   }
+
+  const name = text.split(' ')[1]
 
   const searchresult = await gsmarena.search.search(name)
 

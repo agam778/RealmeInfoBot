@@ -8,7 +8,7 @@ composer.command('codename', async (ctx) => {
   const { text } = message
   logCommand(ctx)
 
-  const devicename = text.substring(text.indexOf(' ') + 1)
+  const devicename = text.split(' ')[1]
 
   if (
     devicename == '/codename' ||
