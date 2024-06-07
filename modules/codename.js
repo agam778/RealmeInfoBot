@@ -42,6 +42,10 @@ composer.command('codename', async (ctx) => {
       )
       .join('\n')
 
+    if (result.length > 4096) {
+      return ctx.reply('The result is too long! Please be more specific.')
+    }
+
     ctx.reply(`The codename for <code>${devicename}</code> is:\n\n${result}`, {
       parse_mode: 'HTML',
       reply_markup: keyboard,
