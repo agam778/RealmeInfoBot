@@ -1,11 +1,11 @@
 import { Composer, InlineKeyboard } from 'grammy'
 import axios from 'axios'
 import { logCommand } from '../helpers.js'
+
 const composer = new Composer()
 
 composer.command('codename', async (ctx) => {
-  const { message } = ctx
-  const { text } = message
+  const { text } = ctx.message
   logCommand(ctx)
 
   const devicename = text.substring(text.indexOf(' ') + 1)
@@ -18,38 +18,25 @@ composer.command('codename', async (ctx) => {
     return
   }
 
-  const encodedDeviceName = encodeURIComponent(devicename)
-  const url = `https://realmebotapi-1-e2272932.deta.app/${encodedDeviceName}`
-
+  const url = `https://realmebotapi-1-e2272932.deta.app/${encodeURIComponent(
+    devicename
+  )}`
   const keyboard = new InlineKeyboard().url(
     'Device/Codename is missing?',
     'https://github.com/agam778/realmebot-api#contributing'
   )
 
-  const response = await axios.get(url).catch((err) => {
-    if (err.response.status === 404) {
-      ctx.reply(`The device <code>${devicename}</code> does not exist!`, {
-        parse_mode: 'HTML',
-        reply_markup: keyboard,
-      })
-    }
-    return
-  })
+  try {
+    const response = await axios.get(url)
 
-  if (response) {
-    const data = response.data
-
-    if (data[0].codename === devicename) {
-      ctx.reply(
+    if (response.data[0].codename === devicename) {
+      return ctx.reply(
         `Oops! Looks like <code>${devicename}</code> is the codename of the device, and not the name!\n\nUse /whatis instead if you want to get the name.`,
-        {
-          parse_mode: 'HTML',
-        }
+        { parse_mode: 'HTML' }
       )
-      return
     }
 
-    const result = data
+    const result = response.data
       .map(
         (device) => `<b>${device.model}:</b> <code>${device.codename}</code>`
       )
@@ -59,6 +46,13 @@ composer.command('codename', async (ctx) => {
       parse_mode: 'HTML',
       reply_markup: keyboard,
     })
+  } catch (err) {
+    if (err.response && err.response.status === 404) {
+      ctx.reply(`The device <code>${devicename}</code> does not exist!`, {
+        parse_mode: 'HTML',
+        reply_markup: keyboard,
+      })
+    }
   }
 })
 
