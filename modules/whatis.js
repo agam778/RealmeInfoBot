@@ -17,14 +17,37 @@ composer.command('whatis', async (ctx) => {
   }
 
   const url = `https://realmebotapi-1-e2272932.deta.app/${codename}`
-
   const keyboard = new InlineKeyboard().url(
     'Device/Codename is missing?',
     'https://github.com/agam778/realmebot-api#contributing'
   )
 
-  const response = await axios.get(url).catch((err) => {
-    if (err.response.status === 404) {
+  try {
+    const response = await axios.get(url)
+
+    if (response.data[0].model.toLowerCase().includes(codename.toLowerCase())) {
+      ctx.reply(
+        `Oops! Looks like <code>${codename}</code> is the name of the device, and not the codename!\n\nUse /codename instead if you want to get the codename.`,
+        { parse_mode: 'HTML' }
+      )
+      return
+    }
+
+    const result = response.data
+      .map(
+        (device) => `<b>${device.model}:</b> <code>${device.codename}</code>`
+      )
+      .join('\n')
+
+    ctx.reply(
+      `The device(s) with codename <code>${codename}</code> is:\n\n${result}`,
+      {
+        parse_mode: 'HTML',
+        reply_markup: keyboard,
+      }
+    )
+  } catch (err) {
+    if (err.response && err.response.status === 404) {
       ctx.reply(
         `The device with codename <code>${codename}</code> is not found!`,
         {
@@ -33,38 +56,6 @@ composer.command('whatis', async (ctx) => {
         }
       )
     }
-    return
-  })
-
-  if (response) {
-    const data = response.data
-
-    const result = []
-
-    if (data[0].model.toLowerCase().includes(codename.toLowerCase())) {
-      ctx.reply(
-        `Oops! Looks like <code>${codename}</code> is the name of the device, and not the codename!\n\nUse /codename instead if you want to get the codename.`,
-        {
-          parse_mode: 'HTML',
-        }
-      )
-      return
-    }
-
-    for (const device of data) {
-      const { model, codename } = device
-      result.push(`<b>${model}:</b> <code>${codename}</code>`)
-    }
-
-    ctx.reply(
-      `The device(s) with codename <code>${codename}</code> is:\n\n${result.join(
-        '\n'
-      )}`,
-      {
-        parse_mode: 'HTML',
-        reply_markup: keyboard,
-      }
-    )
   }
 })
 
