@@ -13,11 +13,11 @@ __metadata:
   linkType: hard
 
 "@roziscoding/grammy-autoquote@npm:^2.0.0":
-  version: 2.0.6
-  resolution: "@roziscoding/grammy-autoquote@npm:2.0.6"
+  version: 2.0.8
+  resolution: "@roziscoding/grammy-autoquote@npm:2.0.8"
   peerDependencies:
     grammy: ^1
-  checksum: 10c0/037a57170d66659ca2ff30f16376bf58554d0744f127691103b4c86caa46c83fe9725a45d0c97b2556a01835c5c21ba1674ab8334dfcd08ef734f66e2ed5336d
+  checksum: 10c0/30991e7bbd6e2c405b19fd405bc6332c3f3455706f87537fcf19acf7b4960d13bae7bfaeeaf7343be127c845f066f882de14ac7b4f867d5932a5f327cbd0aad8
   languageName: node
   linkType: hard
 
