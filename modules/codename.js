@@ -18,7 +18,7 @@ composer.command('codename', async (ctx) => {
     return
   }
 
-  const url = `https://realmebotapi-1-e2272932.deta.app/${encodeURIComponent(
+  const url = `https://rbapi.up.railway.app/${encodeURIComponent(
     devicename
   )}`
   const keyboard = new InlineKeyboard().url(

@@ -16,7 +16,7 @@ composer.command('whatis', async (ctx) => {
     return
   }
 
-  const url = `https://realmebotapi-1-e2272932.deta.app/${codename}`
+  const url = `https://rbapi.up.railway.app/${codename}`
   const keyboard = new InlineKeyboard().url(
     'Device/Codename is missing?',
     'https://github.com/agam778/realmebot-api#contributing'

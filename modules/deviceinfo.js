@@ -38,10 +38,7 @@ composer.command('deviceinfo', async (ctx) => {
   const { name: deviceName, detailSpec } = details
 
   const url = await axios
-    .get(
-      'https://realmebotapi-1-e2272932.deta.app/' +
-        encodeURIComponent(deviceName)
-    )
+    .get('https://rbapi.up.railway.app/' + encodeURIComponent(deviceName))
     .catch((err) => {})
 
   if (url) {
