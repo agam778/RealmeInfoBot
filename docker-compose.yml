@@ -1,0 +1,8 @@
+version: '3'
+services:
+  realmeinfobot:
+    build: .
+    restart: unless-stopped
+    env_file: stack.env
+    ports:
+      - '7779:7779' 
