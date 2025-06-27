@@ -601,12 +601,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^15.0.0":
-  version: 15.0.7
-  resolution: "marked@npm:15.0.7"
+"marked@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "marked@npm:16.0.0"
   bin:
     marked: bin/marked.js
-  checksum: 10c0/0b9d07bace37bbf0548bae356c4184765afa4d2296ed0be4418aa4bb0ce703f323dc1a475125d536581f9fe264797e6265dd0b57499d97c0fe0f29bc6d016343
+  checksum: 10c0/f8bce34edca365dd30dbc435ba5f052404483c254f76e9926ac29f9ddcaf85543e23fee5bda8e28216304111b63f7430e3a00556ce49f24edb92f0a216f52047
   languageName: node
   linkType: hard
 
@@ -839,7 +839,7 @@ __metadata:
     fs: "npm:^0.0.1-security"
     grammy: "npm:1.35.0"
     gsmarena-api: "npm:^2.0.4"
-    marked: "npm:^15.0.0"
+    marked: "npm:^16.0.0"
     randomstring: "npm:^1.3.0"
   languageName: unknown
   linkType: soft
